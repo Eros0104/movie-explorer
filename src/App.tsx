@@ -2,9 +2,20 @@ import GlobalStyle from "./theme/globalStyles";
 import { Container, MovieCard } from "./components";
 import { ThemeProvider } from "styled-components";
 import theme from "./theme/theme";
+import { useEffect } from "react";
+import MovieService from "./services/movieService";
 
 const movieCover = "https://pics.filmaffinity.com/Seven-936725492-large.jpg";
 const App = () => {
+  useEffect(() => {
+    fetchMovies();
+  }, []);
+
+  const fetchMovies = async () => {
+    const result = await MovieService.get(1);
+    console.log(result)
+  };
+
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyle />
