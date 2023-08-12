@@ -1,11 +1,16 @@
 import GlobalStyle from "./theme/globalStyles";
+import { Container } from "./components"
+import { ThemeProvider } from "styled-components" 
+import theme from "./theme/theme"
 
 const App = () => {
   return (
-    <div>
+    <ThemeProvider theme={theme}>
       <GlobalStyle />
-      Movie explorer
-    </div>
+      <Container> 
+        Movie Explorer
+      </Container>
+    </ThemeProvider>
   );
 }
 
