@@ -5,6 +5,12 @@ const theme = {
     md: 960,
     lg: 1280,
     xl: 1920
+  },
+  pallete: {
+    background: {
+      main: "#141414",
+      card: "#202020"
+    }
   }
 }
 
