@@ -1,5 +1,11 @@
 import GlobalStyle from "./theme/globalStyles";
-import { Container, MovieCard, Pagination, SearchBar } from "./components";
+import {
+  Container,
+  MovieCard,
+  Pagination,
+  SearchBar,
+  GridContainer,
+} from "./components";
 import { ThemeProvider } from "styled-components";
 import theme from "./theme/theme";
 import React, { useEffect, useState } from "react";
@@ -47,24 +53,18 @@ const App = () => {
         Movie Explorer
         <br />
         <SearchBar onChange={handleSearchBarChange} />
-        <MovieCard
-          cover={movieCover}
-          description="Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-            Quam harum sit libero esse. Cumque tempore corporis quam asperiores,
-            deserunt officia doloremque quae?"
-          title="Seven"
-          director="David Fincher"
-          year={1999}
-        />
-        {movies.map((movie) => (
-          <MovieCard
-            cover={movieCover}
-            description={movie.description}
-            title={movie.title}
-            director={movie.director}
-            year={movie.year}
-          />
-        ))}
+
+        <GridContainer>
+          {movies.map((movie) => (
+              <MovieCard
+                cover={movieCover}
+                description={movie.description}
+                title={movie.title}
+                director={movie.director}
+                year={movie.year}
+              />
+          ))}
+        </GridContainer>
         <Pagination
           currentPage={paginationData.currentPage}
           totalPages={paginationData.pages}

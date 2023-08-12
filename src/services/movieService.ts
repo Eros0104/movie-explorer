@@ -7,7 +7,7 @@ interface MovieGetResponse {
   totalPages: number;
 }
 
-const itemsPerPage = 9;
+const itemsPerPage = 10;
 
 export default class MovieService {
   static get = async (
