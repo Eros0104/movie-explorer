@@ -1,8 +1,10 @@
 interface MovieEntity {
+  description: string;
+  director: string;
+  id: string;
+  coverImage: string;
   title: string;
   year: number;
-  director: string;
-  image: string;
 }
 
 export default MovieEntity;

@@ -2,7 +2,7 @@ import api from "./api";
 import { MovieEntity } from "../types";
 
 interface MovieGetResponse {
-  movies: MovieEntity;
+  movies: MovieEntity[];
   totalCount: number;
   totalPages: number;
 }
@@ -14,7 +14,7 @@ export default class MovieService {
     const { data: movies, headers } = await api.get(
       `movies?_page=${page}&_limit=${itemsPerPage}`
     );
-    
+
     const totalCount = parseInt(headers["x-total-count"] as string, 10);
 
     const totalPages = Math.ceil(totalCount / itemsPerPage);
