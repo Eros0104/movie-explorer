@@ -1,8 +1,8 @@
 import GlobalStyle from "./theme/globalStyles";
-import { Container, MovieCard, Pagination } from "./components";
+import { Container, MovieCard, Pagination, SearchBar } from "./components";
 import { ThemeProvider } from "styled-components";
 import theme from "./theme/theme";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import MovieService from "./services/movieService";
 import { MovieEntity } from "./types";
 
@@ -18,8 +18,8 @@ const App = () => {
     fetchMovies(1);
   }, []);
 
-  const fetchMovies = async (newPage: number) => {
-    const result = await MovieService.get(newPage);
+  const fetchMovies = async (newPage: number, searchFilter?: string) => {
+    const result = await MovieService.get(newPage, searchFilter);
     console.log(result);
     setMovies(result.movies);
     setPaginationData({
@@ -32,12 +32,21 @@ const App = () => {
     await fetchMovies(page);
   };
 
+  const handleSearchBarChange = async (
+    event: React.ChangeEvent<HTMLInputElement>
+  ) => {
+    const inputValue = event.target.value;
+    console.log(inputValue);
+    await fetchMovies(paginationData.currentPage, inputValue);
+  };
+
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyle />
       <Container>
         Movie Explorer
         <br />
+        <SearchBar onChange={handleSearchBarChange} />
         <MovieCard
           cover={movieCover}
           description="Lorem ipsum dolor sit, amet consectetur adipisicing elit.

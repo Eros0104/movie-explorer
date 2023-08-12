@@ -10,9 +10,13 @@ interface MovieGetResponse {
 const itemsPerPage = 9;
 
 export default class MovieService {
-  static get = async (page: number): Promise<MovieGetResponse> => {
+  static get = async (
+    page: number,
+    filter?: string
+  ): Promise<MovieGetResponse> => {
+    const filterQuery = filter ? `&q=${filter}` : "";
     const { data: movies, headers } = await api.get(
-      `movies?_page=${page}&_limit=${itemsPerPage}`
+      `movies?_page=${page}&_limit=${itemsPerPage}${filterQuery}`
     );
 
     const totalCount = parseInt(headers["x-total-count"] as string, 10);

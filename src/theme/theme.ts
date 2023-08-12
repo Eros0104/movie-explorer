@@ -10,6 +10,10 @@ const theme = {
     background: {
       main: "#141414",
       card: "#202020"
+    },
+    font: {
+      dark: "#000",
+      light: "#fff"
     }
   }
 }
