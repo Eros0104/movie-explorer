@@ -1,29 +1,36 @@
 import {
   Container,
-  Title,
   Cover,
   CoverContainer,
   Description,
-  DirectorName,
+  DescriptionContainer,
+  DescriptionFooter,
+  Info,
+  Title,
 } from "./styles";
 
 interface Props {
-  title: string;
   cover: string;
   description: string;
+  director: string;
+  title: string;
+  year: number;
 }
 
-const MovieCard = ({ title, cover, description }: Props) => {
+const MovieCard = ({ title, cover, description, director, year }: Props) => {
   return (
     <Container>
       <CoverContainer>
         <Cover src={cover}></Cover>
         <Title>{title}</Title>
       </CoverContainer>
-      <Description>
-        {description}
-        <DirectorName>David Fincher</DirectorName>
-      </Description>
+      <DescriptionContainer>
+        <Description>{description}</Description>
+        <DescriptionFooter>
+          <Info>{year}</Info>
+          <Info>{director}</Info>
+        </DescriptionFooter>
+      </DescriptionContainer>
     </Container>
   );
 };

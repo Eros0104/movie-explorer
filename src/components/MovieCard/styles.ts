@@ -1,30 +1,36 @@
 import { styled } from "styled-components";
 
-const Description = styled.div`
+const DescriptionContainer = styled.div`
   display: none;
   font-size: 0.75rem;
   padding: 0.7rem;
+  background-color: ${({ theme }) => theme.pallete.background.card};
 `;
 
-const DirectorName = styled.span`
-  text-align: right;
+const Description = styled.p``;
+
+const DescriptionFooter = styled.div`
+  display: flex;
+  justify-content: space-between;
   margin-top: 0.5rem;
+`;
+
+const Info = styled.span`
   font-size: 0.6rem;
   font-weight: 600;
-  display: block;
 `;
 
 const Container = styled.div`
-  border-radius: 0.5rem;
-  background-color: ${({ theme }) => theme.pallete.background.card};
   width: 230px;
-  overflow: hidden;
+  height: 129px;
   cursor: pointer;
+  position: relative;
   transition: 0.3s;
 
   &:hover {
+    z-index: 2;
     transform: scale(1.2);
-    ${Description} {
+    ${DescriptionContainer} {
       display: block;
     }
   }
@@ -34,10 +40,11 @@ const Title = styled.h3`
   position: absolute;
   right: 1rem;
   bottom: 0.5rem;
+  text-align: right;
 `;
 
 const CoverContainer = styled.div`
-  height: 130px;
+  height: 100%;
   position: relative;
 `;
 
@@ -45,4 +52,13 @@ const Cover = styled.img`
   width: 100%;
 `;
 
-export { Container, Title, Cover, CoverContainer, Description, DirectorName };
+export {
+  Container,
+  Cover,
+  CoverContainer,
+  Description,
+  DescriptionContainer,
+  DescriptionFooter,
+  Info,
+  Title,
+};
