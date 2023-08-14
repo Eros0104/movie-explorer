@@ -25,7 +25,7 @@ const Container = styled.div`
   height: 129px;
   cursor: pointer;
   position: relative;
-  transition: 0.3s;
+  transition: 0.3s ease;
 
   &:hover {
     z-index: 2;

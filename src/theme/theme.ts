@@ -7,6 +7,10 @@ const theme = {
     xl: 1920
   },
   pallete: {
+    primary: {
+      main: "#81e6d9",
+      dark: "#63e0cf",
+    },
     background: {
       main: "#141414",
       card: "#202020"
