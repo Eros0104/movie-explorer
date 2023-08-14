@@ -15,10 +15,6 @@ import React, { useEffect, useState } from "react";
 import MovieService from "./services/movieService";
 import { MovieEntity } from "./types";
 
-const movieCover = "https://pics.filmaffinity.com/Seven-936725492-large.jpg";
-const movieCover2 =
-  "https://images.bauerhosting.com/legacy/empire-tmdb/films/603/images/7u3pxc0K1wx32IleAkLv78MKgrw.jpg?format=jpg&quality=80&width=960&height=540&ratio=16-9&resize=aspectfill";
-
 const App = () => {
   const [paginationData, setPaginationData] = useState({
     pages: 1,
@@ -69,9 +65,10 @@ const App = () => {
             ? Array.from({ length: 10 }, (_, index) => (
                 <Skeleton key={index} width={230} height={129} />
               ))
-            : movies.map((movie, index) => (
+            : movies.map((movie) => (
                 <MovieCard
-                  cover={index % 2 === 0 ? movieCover : movieCover2}
+                  key={movie.id}
+                  cover={movie.coverImage}
                   description={movie.description}
                   title={movie.title}
                   director={movie.director}
