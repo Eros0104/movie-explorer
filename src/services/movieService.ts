@@ -14,7 +14,7 @@ export default class MovieService {
     page: number,
     filter?: string
   ): Promise<MovieGetResponse> => {
-    const filterQuery = filter ? `&q=${filter}` : "";
+    const filterQuery = filter ? `&title_like=${filter}` : "";
     const { data: movies, headers } = await api.get(
       `movies?_page=${page}&_limit=${itemsPerPage}${filterQuery}`
     );
