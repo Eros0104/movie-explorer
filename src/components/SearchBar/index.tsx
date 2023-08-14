@@ -19,7 +19,13 @@ const SearchBar = ({ onChange }: Props) => {
     }
   };
 
-  return <StyledSearchBar onChange={handleInputChange} type="text" />;
+  return (
+    <StyledSearchBar
+      onChange={handleInputChange}
+      type="text"
+      placeholder="Pesquisar filme..."
+    />
+  );
 };
 
 export default SearchBar;

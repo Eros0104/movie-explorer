@@ -6,6 +6,7 @@ import {
   SearchBar,
   GridContainer,
   Header,
+  Footer,
 } from "./components";
 import { ThemeProvider } from "styled-components";
 import theme from "./theme/theme";
@@ -67,11 +68,13 @@ const App = () => {
             />
           ))}
         </GridContainer>
-        <Pagination
-          currentPage={paginationData.currentPage}
-          totalPages={paginationData.pages}
-          onPageChange={handlePageChange}
-        />
+        <Footer>
+          <Pagination
+            currentPage={paginationData.currentPage}
+            totalPages={paginationData.pages}
+            onPageChange={handlePageChange}
+          />
+        </Footer>
       </Container>
     </ThemeProvider>
   );
