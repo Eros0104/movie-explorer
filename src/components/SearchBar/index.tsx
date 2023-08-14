@@ -23,7 +23,7 @@ const SearchBar = ({ onChange }: Props) => {
     <StyledSearchBar
       onChange={handleInputChange}
       type="text"
-      placeholder="Pesquisar filme..."
+      placeholder="Search movie..."
     />
   );
 };
